@@ -1,0 +1,9 @@
+Lab 02 - answers
+
+Question (section 8): May Java have one DVD constructor accepting title (String) and another accepting category (String)?
+No. Both would have the same constructor signature DigitalVideoDisc(String). Names of formal parameters do not affect constructor overloading. Use different parameter types/counts or named factory methods.
+
+Reading assignment (section 7): When should accessor methods be used?
+Use getters when external code legitimately needs to read state, and mutators only for allowed changes with validation. Do not automatically create accessors for all fields. A DVD's attributes may be read for display; the requirements do not call for changing DVD metadata after construction, so getters without setters fit this exercise. Prefer behavior-focused methods. See ReadingAssignment/accessors-mindmap.dot.
+
+Note: Graphviz diagram sources are included here. Genuine Astah .astah projects are not supplied.
