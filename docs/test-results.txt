@@ -1,0 +1,100 @@
+PASS: compiled 21 Java sources targeting Java 8 (in-memory class output)
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been removed
+The disc was not found in the cart
+The disc has been removed
+The disc has been removed
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+Cannot add a null disc
+Cannot add a null DVD list
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The disc has been added
+The cart is almost full
+The disc has been added
+The cart is full
+The cart is full
+The cart is full
+The disc has been removed
+The disc has been added
+PASS: CartTest
+The DVD was not found in the store
+Cannot add a null DVD
+The DVD has been added to the store
+The DVD is already in the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been removed from the store
+The DVD has been removed from the store
+The DVD has been removed from the store
+The DVD was not found in the store
+PASS: StoreTest
+PASS: DiscTest
+jungle dvd title: Jungle
+cinderella dvd title: Cinderella
+jungle dvd title: Cinderella
+PASS: pass-by-value and working holder swap
+PASS: GarbageTest (empty, binary, multi-chunk)
+The DVD has been added to the store
+The DVD has been added to the store
+The DVD has been added to the store
+The disc has been added
+The disc has been added
+The disc has been added
+***********************CART***********************
+Ordered Items:
+1. DVD - The Lion King - Animation - Roger Allers - 87: 19.95 $
+2. DVD - Star Wars - Science Fiction - George Lucas - 87: 24.95 $
+3. DVD - Aladdin - Animation - John Musker - 90: 18.99 $
+Total cost: 63.89 $
+***************************************************
+DVD - Star Wars - Science Fiction - George Lucas - 87: 24.95 $
+DVD - The Lion King - Animation - Roger Allers - 87: 19.95 $
+The disc has been removed
+***********************CART***********************
+Ordered Items:
+1. DVD - The Lion King - Animation - Roger Allers - 87: 19.95 $
+2. DVD - Aladdin - Animation - John Musker - 90: 18.99 $
+Total cost: 38.94 $
+***************************************************
+iterations=12000; +=27.903 ms; StringBuffer=0.625 ms; StringBuilder=0.464 ms
+PASS: identical results, length=12000

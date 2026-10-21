@@ -1,0 +1,12 @@
+digraph AIMS {
+graph [rankdir=LR,labelloc=t,label="AIMS Lab03 - implemented classes",fontsize=22,pad=0.3];
+node [shape=record,fontname="Arial"]; edge [fontname="Arial"];
+Aims [label="{Aims|+ main(args: String[]): void}"];
+DVD [label="{DigitalVideoDisc| - nbDigitalVideoDiscs: int (static)\l- id: int (final)\l- title: String\l- category: String\l- director: String\l- length: int\l- cost: float\l|+ constructors (4 overloads)\l+ getters\l+ setTitle(title): void\l+ isMatch(keywords): boolean\l+ toString(): String\l}"];
+Cart [label="{Cart|+ MAX_NUMBERS_ORDERED = 20 (static final)\l- itemsOrdered: DigitalVideoDisc[20]\l- qtyOrdered: int\l|+ addDigitalVideoDisc(disc): void\l+ addDigitalVideoDisc(dvd1, dvd2): void\l+ addDigitalVideoDisc(dvds...): void\l+ removeDigitalVideoDisc(disc): void\l+ totalCost(): float\l+ print(): void\l+ displayCart(): void\l+ searchById(id): void\l+ searchByTitle(keywords): void\l+ getQtyOrdered(): int\l+ getItemsOrdered(): DigitalVideoDisc[]\l}"];
+Store [label="{Store|- itemsInStore: DigitalVideoDisc[]\l- qtyInStore: int\l|+ addDVD(dvd): void\l+ removeDVD(dvd): void\l+ getQtyInStore(): int\l+ getItemsInStore(): DigitalVideoDisc[]\l}"];
+Aims -> Cart [style=dashed,label="creates"];
+Aims -> Store [style=dashed,label="creates"];
+Cart -> DVD [dir=both,arrowtail=odiamond,arrowhead=none,label="0..20 ordered copies"];
+Store -> DVD [dir=both,arrowtail=odiamond,arrowhead=none,label="0..* inventory DVDs"];
+}

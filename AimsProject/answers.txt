@@ -1,0 +1,92 @@
+Lab03 - Basic Object-Oriented Techniques
+
+1. Release workflow
+The release/lab03 submission branch starts from the existing master revision,
+which already contains Lab01 and Lab02. Current packaged projects live directly
+under the repository root. Earlier lab folders are retained as historical snapshots.
+This submission is published on release/lab03. It is not merged back from release.
+Topic branches are optional; do not invent a history of GUI actions.
+
+2. Method overloading
+Overloads differ by parameter types, number, or order, not return type alone.
+The single-DVD, pair-DVD and varargs overloads are implemented.
+DigitalVideoDisc... has the same JVM signature as DigitalVideoDisc[]:
+both cannot be declared together. The varargs overload accepts an existing array,
+zero arguments, or three or more arguments. A two-argument call chooses the fixed
+pair overload; a one-DVD call chooses the fixed single overload.
+Varargs is convenient here because a small list can be passed without explicitly
+constructing an array. An array is useful when a batch already exists.
+A bare null call is ambiguous between DVD and DVD[]; use an explicit cast.
+
+3. Parameter passing
+Java always passes by value. For an object argument the copied value is a reference,
+not a copy of the object. swap(Object,Object) exchanges only local reference copies,
+so jungleDVD and cinderellaDVD in main remain bound to their original objects.
+changeTitle mutates the shared object's field through the copied reference, which
+is visible to the caller. Reassigning dvd inside that method affects only the local
+parameter. Strings themselves are immutable; setTitle changes the reference field.
+No swap(DVD,DVD) can rebind arbitrary caller local variables in Java.
+The working overload swap(DVD[] pair) changes array slots shared with the caller.
+The caller must read pair[0] and pair[1], or explicitly reassign its own variables.
+
+4. Eclipse debugging
+Set a breakpoint in swap with Ctrl+Shift+B; Debug As > Java Application.
+F5 enters a method, F6 steps over, F7 returns, F8 resumes.
+Watch o1, o2 and tmp: initially J/C; after tmp=o1, tmp=J;
+after o1=o2, local o1=C; after o2=tmp, local o2=J.
+The caller's variables remain J/C. Changing jungleDVD.title in Variables to abc
+would change the next printed title, because this edits the shared object.
+The code and observations are reproducible; an interactive Eclipse debugging
+session and screenshots were not captured in this environment.
+
+5. Class versus instance members
+nbDigitalVideoDiscs is static: one shared count for this loaded class in one JVM.
+id is final and belongs to each instance; every successful constructor assigns it
+once using ++nbDigitalVideoDiscs through a shared constructor chain.
+This exercise is single-threaded; IDs are not persistent database IDs and reset
+on a fresh JVM. title/category/director/length/cost are per-instance state.
+
+6. Printing and searching
+toString() returns String; it does not print or return void.
+print() lists ordered DVDs, each price, and totalCost().
+ID search uses exact integer equality and title search prints all matches.
+Lab02 explicitly defines a match as the title containing ANY query word,
+case-insensitive. The implementation uses Locale.ROOT and whitespace splitting;
+it is substring containment, not all-keyword matching. Empty/null queries do not match.
+
+7. Store
+itemsInStore is an array, expanded as inventory grows. addDVD rejects null and a
+duplicate reference; removeDVD removes the matching reference and compacts the
+array. A cart may hold repeated references representing multiple ordered copies.
+The store has no specified 20-item limit; only the cart has that limit.
+
+8. Packages and encapsulation
+AimsProject uses hust.soict.dsai.aims and hust.soict.dsai.test subpackages.
+OtherProjects uses hust.soict.dsai.lab01 and hust.soict.dsai.garbage.
+The Lab02 constructor argument order is retained. Only setTitle is added for the
+Lab03 experiment; other fields remain read-only. Returned arrays are defensive copies.
+
+9. String, StringBuilder, StringBuffer and memory
+String is immutable: repeated += creates intermediate strings and repeated copying.
+For n one-character appends this is quadratic copying in the Java 8 target example.
+StringBuffer is mutable with synchronized operations; StringBuilder is mutable
+without synchronization and is normally suitable for a local single-threaded buffer.
+Both grow their backing storage; neither eliminates all allocation.
+ConcatenationInLoops resets Random(123) for each case, compares identical results,
+and prints elapsed times. These single-run timings are illustrative, not a benchmark.
+GarbageCreator repeatedly copies an ever-growing string; unreachable old strings
+create GC pressure. It need not always hang or throw OutOfMemoryError.
+NoGarbage appends to StringBuffer and reads fixed-size chunks, avoiding quadratic
+copying. Both examples map each unsigned byte to one character (ISO-8859-1 style);
+they are binary-preserving demonstrations, not UTF-8 text decoders.
+Use a bounded process heap such as -Xmx128m for larger experiments.
+No deliberate machine hang, GUI memory screenshot, or fabricated OOM result is claimed.
+
+Diagrams and limitations
+Updated use-case/class diagrams have editable DOT sources and rendered PNG/SVG.
+Astah Professional is installed. Its API could create an empty native .asta probe,
+but the model-editing attempt terminated with exit status 1 before saving usable
+diagrams. No valid .astah or populated .asta artifact is supplied.
+The native Astah and interactive Eclipse portions therefore remain manual tasks.
+The requirement diagram includes future Lab02 narrative features; the code implements
+only the Lab02/Lab03 exercises, not payment, authentication, playback, or checkout.

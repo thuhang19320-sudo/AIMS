@@ -8,6 +8,6 @@ Run: `cd src && javac *.java && java Aims`; test with `java CartTest`.
 
 DOT source files can be rendered with Graphviz: `dot -Tpng Requirement/use-case.dot -o Requirement/use-case.png` and similarly for other diagrams.
 
-**Submission limitation:** This GitHub copy has editable Graphviz files, not native .astah files. The Lab02 brief specifically requests actual Astah projects and PNG diagrams; these must be saved/exported in Astah before final submission. PNG renderings are available in the Lab02.zip download supplied in chat.
+**Submission limitation:** This GitHub copy has editable Graphviz files, not native .astah files. The Lab02 brief specifically requests actual Astah projects and PNG diagrams; these must be saved/exported in Astah before final submission. PNG and SVG renderings are now included next to their DOT sources. Current integrated Lab03 code is in ../AimsProject.
 
 The Java code covers the cart-management exercises (sections 4–11), not the entire future AIMS system from the problem narrative.

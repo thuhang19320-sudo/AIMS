@@ -1,0 +1,17 @@
+digraph UseCases {
+graph [rankdir=LR,labelloc=t,label="AIMS requirements (Lab02 narrative updated for Lab03)",fontsize=22,pad=0.4];
+node [fontname="Arial",shape=ellipse];edge [fontname="Arial"];
+Customer [shape=box];Manager [shape=box,label="Store manager"];Card [shape=box,label="Card association system"];
+subgraph cluster_system { label="AIMS";
+"Browse DVDs"; "Search store by title/category/price"; "View DVD detail"; "Play DVD demo";
+"Add DVD to cart"; "View / print cart"; "Search cart by ID/title"; "Remove DVD from cart";
+"Sort cart"; "Update quantity"; "Receive free DVD"; "Place order";
+"Enter delivery information";"Calculate delivery fee";"View invoice";"Pay by credit card";"View transaction";"Email confirmation";
+"Manager login";"View pending orders";"View order detail";"Approve order";"Reject order";"Add DVD to store";"Remove DVD from store";
+}
+Customer -> {"Browse DVDs" "Search store by title/category/price" "View DVD detail" "Play DVD demo" "Add DVD to cart" "View / print cart" "Search cart by ID/title" "Remove DVD from cart" "Sort cart" "Update quantity" "Receive free DVD" "Place order" "Pay by credit card" "View transaction"} [dir=none];
+Manager -> {"Manager login" "View pending orders" "View order detail" "Approve order" "Reject order" "Add DVD to store" "Remove DVD from store"} [dir=none];
+Card -> "Pay by credit card" [dir=none];
+"Place order" -> {"Enter delivery information" "Calculate delivery fee" "View invoice"} [style=dashed,label="<<include>>"];
+"Pay by credit card" -> "Email confirmation" [style=dashed,label="<<include>>"];
+}
